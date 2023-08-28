@@ -4,7 +4,6 @@ import './App.css'; // Import the updated CSS file
 
 const News = () => {
   const [articles, setArticles] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(false); // State for the theme
 
   useEffect(() => {
     const apiUrl = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=c3b687be9d764db19e3bee7750c3a61c`;
@@ -15,15 +14,12 @@ const News = () => {
   }, []);
 
   // Function to toggle the theme
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  
 
   return (
-    <div className={`news-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className>
       <header>
         <h1>Latest News</h1>
-        <button onClick={toggleTheme}>Dark Mode</button>
       </header>
       <div className="card-container">
         {articles.map((article, index) => (
